@@ -14,16 +14,16 @@ let plazo = parseInt(prompt("Ingrese el plazo del préstamo en meses: "));
 let cuotaMensual = calcularCuotaMensual(prestamo, tasaInteres / 100, plazo);
 
 // Imprimimos la cuota mensual resultante
-console.log("La cuota mensual es de: " + cuotaMensual.toFixed(2));
+alert("La cuota mensual es de: " + cuotaMensual.toFixed(2));
 
-// Creamos un ciclo para que el usuario pueda ingresar diferentes opciones
+
 while (true) {
     // Pedimos al usuario que ingrese una opción
     let opcion = prompt("¿Desea calcular una nueva cuota mensual? (s/n): ");
 
     // Si el usuario ingresa "n", salimos del ciclo
     if (opcion === "n") {
-        console.log("¡Gracias por utilizar nuestro simulador de créditos!");
+        alert("¡Gracias por utilizar nuestro simulador de créditos!");
         break;
     }
 
@@ -33,11 +33,11 @@ while (true) {
         tasaInteres = parseFloat(prompt("Ingrese la tasa de interés anual (%): "));
         plazo = parseInt(prompt("Ingrese el plazo del préstamo en meses: "));
         cuotaMensual = calcularCuotaMensual(prestamo, tasaInteres / 100, plazo);
-        console.log("La cuota mensual es de: " + cuotaMensual.toFixed(2));
+        alert("La cuota mensual es de: " + cuotaMensual.toFixed(2));
     }
 
     // Si el usuario ingresa cualquier otra opción, le pedimos que ingrese una opción válida
     else {
-        console.log("Ingrese una opción válida (s/n)");
+        alert("Ingrese una opción válida (s/n)");
     }
 }
