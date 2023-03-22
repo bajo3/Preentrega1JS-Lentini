@@ -6,52 +6,50 @@ function calcularCuotaMensual(prestamo, tasaInteres, plazo) {
 }
 
 // Pedimos al usuario que ingrese los datos del préstamo
-
-
 let prestamo = parseFloat(prompt("Ingrese el monto del préstamo: "));
 let tasaInteres = parseFloat(prompt("Ingrese la tasa de interés anual (%): "));
 let plazo = parseInt(prompt("Ingrese el plazo del préstamo en meses: "));
-    
-function pedirDatos() {
-    if(isNaN(prestamo, tasaInteres, plazo)){
-      alert('error, ingrese nuevamente');
-    pedirEdad()
-    } 
-    
-    }
-    
-    pedirDatos()
 
 // Calculamos la cuota mensual utilizando la función previamente definida
 let cuotaMensual = calcularCuotaMensual(prestamo, tasaInteres / 100, plazo);
 
+function cuotaTotal(){
+    if(isNaN (cuotaMensual)){
+      alert('error, ingrese nuevamente');
+    }else{
 // Imprimimos la cuota mensual resultante
 alert("La cuota mensual es de: " + cuotaMensual.toFixed(2));
+    }
+    
+    }
+    
+    cuotaTotal()
+
+
 
 
 while (true) {
     // Pedimos al usuario que ingrese una opción
-    const opcion = parseInt(prompt("¿Desea calcular una nueva cuota mensual? 1 si 2 no: "));
+    let opcion = prompt("¿Desea calcular una nueva cuota mensual? (s/n): ");
 
-    // Si el usuario ingresa "2", salimos del ciclo
-    if (opcion === 2 ) {
+    // Si el usuario ingresa "n", salimos del ciclo
+    if (opcion === "n") {
         alert("¡Gracias por utilizar nuestro simulador de créditos!");
         break;
+
     }
 
-    // Si el usuario ingresa "1", pedimos nuevamente los datos del préstamo
-    else if (opcion === 1) {
+    // Si el usuario ingresa "s", pedimos nuevamente los datos del préstamo
+    else if (opcion === "s") {
         prestamo = parseFloat(prompt("Ingrese el monto del préstamo: "));
         tasaInteres = parseFloat(prompt("Ingrese la tasa de interés anual (%): "));
         plazo = parseInt(prompt("Ingrese el plazo del préstamo en meses: "));
         cuotaMensual = calcularCuotaMensual(prestamo, tasaInteres / 100, plazo);
-        alert("La cuota mensual es de: " + cuotaMensual.toFixed(2));
+        cuotaTotal();
     }
 
     // Si el usuario ingresa cualquier otra opción, le pedimos que ingrese una opción válida
     else {
-        alert("Ingrese una opción válida (1/2)");
+        alert("Ingrese una opción válida (s/n)");
     }
-
-  
 }
